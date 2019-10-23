@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Form</title>
+</head>
+<body>
+<h1>Inzerat</h1>
+<form method="post" th:object="${inzerat}">
+    <div th:if="${#fields.hasAnyErrors()}">
+        <p th:each="err : ${#fields.allErrors()}" th:text="${err}">...</p>
+    </div>
+
+    Název: <input th:field="${inzerat.text}"><br>
+    Cena: <input th:field="${inzerat.cena}"><br>
+    <input type="submit" value="Odeslat"><br>
+</form>
+</body>
+</html>

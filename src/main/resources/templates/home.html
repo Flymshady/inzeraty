@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+<h1>Inzeraty</h1>
+
+<a th:href="@{/edit}">Přidat inzerát</a>
+
+<div th:each="inzerat : ${inzeraty}">
+    <span th:text="${inzerat.kategorie}">Prodám</span>
+    <span th:text="${inzerat.text}">iPhone 123</span>
+    <span th:if="${inzerat.cena !=null}">
+        <span th:text="${inzerat.cena}">10000</span> Kč
+    </span>
+    <a th:href="@{/edit(id=${inzerat.id})}">edit</a>
+
+</div>
+
+</body>
+</html>
